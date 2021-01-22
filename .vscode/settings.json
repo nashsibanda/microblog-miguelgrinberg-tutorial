@@ -6,4 +6,13 @@
     "emmet.includeLanguages": {
         "jinja-html": "html"
     },
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "database": "./app.db",
+            "name": "microblogSQLiteDB"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
 }
