@@ -3,9 +3,16 @@ from flask_login import current_user, login_user
 from flask.helpers import flash
 from flask_login.utils import login_required, logout_user
 from werkzeug.urls import url_parse
+from datetime import datetime
 from app import app, db
 from app.forms import LoginForm, RegistrationForm
 from app.models import User
+
+@app.before_request
+def before_request():
+    if current_user.is_authenticated:
+        current_user.last_seen = datetime.utcnow()
+        db.session.commit()
 
 @app.route('/')
 @app.route('/index')
