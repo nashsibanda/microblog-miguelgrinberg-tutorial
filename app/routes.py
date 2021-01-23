@@ -1,13 +1,15 @@
-from flask import render_template, flash, redirect, url_for
+from flask import render_template, flash, redirect, url_for, request
 from flask_login import current_user, login_user
 from flask.helpers import flash
-from flask_login.utils import logout_user
+from flask_login.utils import login_required, logout_user
+from werkzeug.urls import url_parse
 from app import app
 from app.forms import LoginForm
 from app.models import User
 
 @app.route('/')
 @app.route('/index')
+@login_required
 def index():
     user = {'username': 'Nash'}
     posts = [
@@ -33,7 +35,10 @@ def login():
             flash('Invalid username or password')
             return redirect(url_for('login'))
         login_user(user, remember=form.remember_me.data)
-        return redirect(url_for('index'))
+        next_page = request.args.get('next')
+        if not next_page or url_parse(next_page).netloc != '':
+            next_page = url_for('index')
+        return redirect(next_page)
     return render_template('login.html', title='Sign In', form=form)
 
 @app.route('/logout')
