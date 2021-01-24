@@ -46,3 +46,7 @@ class EditProfileForm(FlaskForm):
             if user is not None:
                 raise ValidationError(
                     'This username is already taken, please use a different one.')
+
+
+class EmptyForm(FlaskForm):
+    submit = SubmitField('Submit')
