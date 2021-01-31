@@ -9,38 +9,52 @@
 {% endblock title %}
 
 {% block navbar %}
-        <nav class="navbar navbar-default">
-            {{ _('Microblog') }}:
-            <a href="{{ url_for('index') }}">{{ _('Home') }}</a>
-            <a href="{{ url_for('explore') }}">{{ _('Explore') }}</a>
-            {% if current_user.is_anonymous %}
-            <a href="{{ url_for('login') }}">{{ _('Login') }}</a>
-            {% else %}
-            <a href="{{ url_for('user', username=current_user.username) }}">{{ _('Profile') }}</a>
-            <a href="{{ url_for('logout') }}">{{ _('Logout') }}</a>
-            {% endif %}
-        </nav>
+  <nav class="navbar navbar-default">
+      {{ _('Microblog') }}:
+      <a href="{{ url_for('index') }}">{{ _('Home') }}</a>
+      <a href="{{ url_for('explore') }}">{{ _('Explore') }}</a>
+      {% if current_user.is_anonymous %}
+      <a href="{{ url_for('login') }}">{{ _('Login') }}</a>
+      {% else %}
+      <a href="{{ url_for('user', username=current_user.username) }}">{{ _('Profile') }}</a>
+      <a href="{{ url_for('logout') }}">{{ _('Logout') }}</a>
+      {% endif %}
+  </nav>
 {% endblock navbar %}
 
 {% block content %}
 <div class="container">
-          {% with messages = get_flashed_messages() %} 
-          {% if messages %}
-          <ul>
-              {% for message in messages %}
-              <div class="alert alert-info" role="alert">{{ message }}</div>
-              {% endfor %}
-          </ul>
-          {% endif %}
-          {% endwith %}
+  {% with messages = get_flashed_messages() %} 
+  {% if messages %}
+  <ul>
+      {% for message in messages %}
+      <div class="alert alert-info" role="alert">{{ message }}</div>
+      {% endfor %}
+  </ul>
+  {% endif %}
+  {% endwith %}
 
-          {% block app_content %} {% endblock %}
+  {% block app_content %} {% endblock %}
 
 </div>
 {% endblock content %}
 
 {% block scripts %}
-  {{ super() }}
-  {{ moment.include_moment() }}
-  {{ moment.lang(g.locale) }}
+{{ super() }}
+{{ moment.include_moment() }}
+{{ moment.lang(g.locale) }}
+<script>
+  function translate(sourceElem, destElem, sourceLang, destLang) {
+    $(destElem).htmll('<img src="{{ url_for('static', filename='loading.gif') }}">');
+    $.post('/translate', {
+      text: $(sourceElem).text(),
+      source_language: sourceLang,
+      dest_language: destLang
+    }).done(function(response) {
+      $(destElem).text(response['text'])
+    }).fail(function() {
+      $(destElem).text("{{ _('Error: Could not contact server.') }}")
+    });
+  }
+</script>
 {% endblock scripts %}

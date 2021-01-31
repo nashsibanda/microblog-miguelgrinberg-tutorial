@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-01-31 20:18+0000\n"
-"PO-Revision-Date: 2021-01-31 20:36+0000\n"
+"POT-Creation-Date: 2021-01-31 23:25+0000\n"
+"PO-Revision-Date: 2021-01-31 23:27+0000\n"
+"Last-Translator: \n"
 "Language: cy\n"
 "Language-Team: cy <LL@li.org>\n"
-"Plural-Forms: nplurals=5; plural=(n==1 ? 1 : n==2 ? 2 : n==3 ? 3 : "
-"n==6 ? 4 : 0);\n"
+"Plural-Forms: nplurals=5; plural=(n==1 ? 1 : n==2 ? 2 : n==3 ? 3 : n==6 ? 4 : "
+"0);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.0\n"
-"Last-Translator: \n"
 "X-Generator: Poedit 2.4.2\n"
 
 #: app/__init__.py:18
@@ -36,7 +36,7 @@ msgstr "Cyfrinair"
 msgid "Remember Me"
 msgstr "Cofiwch Fi"
 
-#: app/forms.py:13 app/routes.py:72 app/templates/login.html:6
+#: app/forms.py:13 app/routes.py:86 app/templates/login.html:6
 msgid "Sign In"
 msgstr "Mewngofnodi"
 
@@ -48,7 +48,7 @@ msgstr "E-bost"
 msgid "Confirm Password"
 msgstr "Cadarnhau cyfrinair"
 
-#: app/forms.py:22 app/routes.py:93 app/templates/register.html:5
+#: app/forms.py:22 app/routes.py:107 app/templates/register.html:5
 msgid "Register"
 msgstr "Cofrestru"
 
@@ -70,8 +70,7 @@ msgstr "Cyflwyno"
 
 #: app/forms.py:49
 msgid "This username is already taken, please use a different one."
-msgstr ""
-"Mae'r enw defnyddiwr hwn eisoes wedi'i gymryd, defnyddiwch un gwahanol."
+msgstr "Mae'r enw defnyddiwr hwn eisoes wedi'i gymryd, defnyddiwch un gwahanol."
 
 #: app/forms.py:57
 msgid "Say something"
@@ -81,64 +80,72 @@ msgstr "Dwed rhywbeth"
 msgid "Request Password Reset"
 msgstr "Gofyn am Ailosod Cyfrinair"
 
-#: app/routes.py:30
+#: app/routes.py:36
 msgid "Your post is now live!"
 msgstr "Mae eich swydd bellach yn fyw!"
 
-#: app/routes.py:39
+#: app/routes.py:45
 msgid "Home Page"
 msgstr "Tudalen Cartref"
 
-#: app/routes.py:53 app/templates/base.html:15
+#: app/routes.py:59 app/templates/base.html:15
 msgid "Explore"
 msgstr "Archwilio"
 
-#: app/routes.py:91
+#: app/routes.py:105
 msgid "Congratulations, you are now a registered user!"
 msgstr "Llongyfarchiadau, rydych chi bellach yn ddefnyddiwr cofrestredig!"
 
-#: app/routes.py:120
+#: app/routes.py:134
 msgid "Your changes have been saved!"
 msgstr "Mae eich newidiadau wedi'u cadw!"
 
-#: app/routes.py:126 app/templates/edit_profile.html:6
+#: app/routes.py:140 app/templates/edit_profile.html:6
 msgid "Edit Profile"
 msgstr "Golygu'r proffil"
 
-#: app/routes.py:137 app/routes.py:157
+#: app/routes.py:151 app/routes.py:171
 #, python-format
 msgid "User %(username)s not found."
 msgstr "Heb ganfod %(username)s defnyddiwr."
 
-#: app/routes.py:140
+#: app/routes.py:154
 msgid "You cannot follow yourself!"
 msgstr "Allwch chi ddim dilyn eich hun!"
 
-#: app/routes.py:144
+#: app/routes.py:158
 #, python-format
 msgid "You are following %(username)s!"
 msgstr "Rydych chi'n dilyn %(username)s!"
 
-#: app/routes.py:160
+#: app/routes.py:174
 msgid "You cannot unfollow yourself!"
 msgstr "Allwch chi ddim dad-ddilyn eich hun!"
 
-#: app/routes.py:164
+#: app/routes.py:178
 #, python-format
 msgid "You are no longer following %(username)s."
 msgstr "Dydych chi ddim yn dilyn %(username)s mwyach."
 
-#: app/routes.py:179
+#: app/routes.py:193
 msgid "Check your email for the instructions to reset your password"
 msgstr "Gwiriwch eich e-bost am y cyfarwyddiadau i ailosod eich cyfrinair"
 
-#: app/routes.py:181 app/templates/reset_password_request.html:6
+#: app/routes.py:195 app/templates/reset_password_request.html:6
 msgid "Reset Password"
 msgstr "Ailosod Cyfrinair"
 
-#: app/routes.py:195
+#: app/routes.py:209
 msgid "Your password has been reset."
 msgstr "Mae eich cyfrinair wedi'i ailosod."
+
+#: app/translate.py:9
+msgid "Error: the translation service is not configured."
+msgstr "Gwall: nid yw'r gwasanaeth cyfieithu wedi'i ffurfweddu."
+
+#: app/translate.py:18
+msgid "Error: the translation service failed."
+msgstr "Gwall: methodd y gwasanaeth cyfieithu."
 
 #: app/templates/404.html:4
 msgid "File Not Found"
@@ -156,13 +163,13 @@ msgstr "Mae gwall annisgwyl wedi digwydd"
 msgid "The administrator has been notified. Sorry for the inconvenience!"
 msgstr "Hysbyswyd y gweinyddwr. Mae'n ddrwg gennyf am yr anghyfleustra!"
 
+#: app/templates/base.html:5 app/templates/base.html:13
+msgid "Microblog"
+msgstr "Microblog"
+
 #: app/templates/base.html:7
 msgid "Welcome to Microblog!"
 msgstr "Croeso i Microblog!"
-
-#: app/templates/base.html:13
-msgid "Microblog"
-msgstr "Microblog"
 
 #: app/templates/base.html:14
 msgid "Home"
@@ -179,6 +186,10 @@ msgstr "Proffil"
 #: app/templates/base.html:20
 msgid "Logout"
 msgstr "Logio Allan"
+
+#: app/templates/base.html:56
+msgid "Error: Could not contact server."
+msgstr "Gwall: Doedd dim modd cysylltu â'r gweinydd."
 
 #: app/templates/index.html:6
 #, python-format
