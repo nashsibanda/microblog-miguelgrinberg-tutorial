@@ -4,6 +4,7 @@ from flask.helpers import flash
 from flask_login.utils import login_required, logout_user
 from werkzeug.urls import url_parse
 from datetime import datetime
+from flask_babel import _, lazy_gettext as _l
 from app import app, db
 from app.forms import EditProfileForm, EmptyForm, LoginForm, PostForm, RegistrationForm, ResetPasswordForm, ResetPasswordRequestForm
 from app.models import User, Post
@@ -116,7 +117,7 @@ def edit_profile():
         current_user.username = form.username.data
         current_user.about_me = form.about_me.data
         db.session.commit()
-        flash('Your changes have been saved!')
+        flash(_('Your changes have been saved!'))
         return redirect(url_for('user', username=current_user.username))
     elif request.method == 'GET':
         form.username.data = current_user.username
@@ -133,7 +134,7 @@ def follow(username):
     if form.validate_on_submit():
         user = User.query.filter_by(username=username).first()
         if user is None:
-            flash('User {} not found.'.format(username))
+            flash(_('User %{username} not found.', username=username))
             return redirect(url_for('index'))
         if user == current_user:
             flash('You cannot follow yourself!')
