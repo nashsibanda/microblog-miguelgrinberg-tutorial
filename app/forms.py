@@ -34,8 +34,8 @@ class RegistrationForm(FlaskForm):
 
 class EditProfileForm(FlaskForm):
     username = StringField(_l('Username'), validators=[DataRequired()])
-    about_me = TextAreaField('About Me', validators=[Length(min=0, max=140)])
-    submit = SubmitField('Submit')
+    about_me = TextAreaField(_l('About Me'), validators=[Length(min=0, max=140)])
+    submit = SubmitField(_l('Submit'))
 
     def __init__(self, original_username, *args, **kwargs):
         super(EditProfileForm, self).__init__(*args, **kwargs)
@@ -46,26 +46,26 @@ class EditProfileForm(FlaskForm):
             user = User.query.filter_by(username=self.username.data).first()
             if user is not None:
                 raise ValidationError(
-                    'This username is already taken, please use a different one.')
+                    _l('This username is already taken, please use a different one.'))
 
 
 class EmptyForm(FlaskForm):
-    submit = SubmitField('Submit')
+    submit = SubmitField(_l('Submit'))
 
 
 class PostForm(FlaskForm):
-    post = TextAreaField('Say something', validators=[
+    post = TextAreaField(_l('Say something'), validators=[
                          DataRequired(), Length(min=1, max=140)])
-    submit = SubmitField('Submit')
+    submit = SubmitField(_l('Submit'))
 
 
 class ResetPasswordRequestForm(FlaskForm):
     email = StringField(_l('Email'), validators=[DataRequired(), Email()])
-    submit = SubmitField('Request Password Reset')
+    submit = SubmitField(_l('Request Password Reset'))
 
 
 class ResetPasswordForm(FlaskForm):
-    password = PasswordField('Password', validators=[DataRequired()])
+    password = PasswordField(_l('Password'), validators=[DataRequired()])
     password2 = PasswordField(_l('Confirm Password'), validators=[
                               DataRequired(), EqualTo('password')])
-    submit = SubmitField('Request Password Reset')
+    submit = SubmitField(_l('Request Password Reset'))

@@ -1,0 +1,237 @@
+# Welsh translations for PROJECT.
+# Copyright (C) 2021 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2021-01-31 20:18+0000\n"
+"PO-Revision-Date: 2021-01-31 20:36+0000\n"
+"Language: cy\n"
+"Language-Team: cy <LL@li.org>\n"
+"Plural-Forms: nplurals=5; plural=(n==1 ? 1 : n==2 ? 2 : n==3 ? 3 : "
+"n==6 ? 4 : 0);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+"Last-Translator: \n"
+"X-Generator: Poedit 2.4.2\n"
+
+#: app/__init__.py:18
+msgid "Please log in to access this page."
+msgstr "Mewngofnodwch i gael mynediad i'r dudalen hon."
+
+#: app/forms.py:10 app/forms.py:17 app/forms.py:36
+msgid "Username"
+msgstr "Enw defnyddiwr"
+
+#: app/forms.py:11 app/forms.py:19 app/forms.py:68
+msgid "Password"
+msgstr "Cyfrinair"
+
+#: app/forms.py:12
+msgid "Remember Me"
+msgstr "Cofiwch Fi"
+
+#: app/forms.py:13 app/routes.py:72 app/templates/login.html:6
+msgid "Sign In"
+msgstr "Mewngofnodi"
+
+#: app/forms.py:18 app/forms.py:63
+msgid "Email"
+msgstr "E-bost"
+
+#: app/forms.py:21 app/forms.py:69
+msgid "Confirm Password"
+msgstr "Cadarnhau cyfrinair"
+
+#: app/forms.py:22 app/routes.py:93 app/templates/register.html:5
+msgid "Register"
+msgstr "Cofrestru"
+
+#: app/forms.py:27
+msgid "Please use a different username"
+msgstr "Defnyddiwch enw defnyddiwr gwahanol"
+
+#: app/forms.py:32
+msgid "Please use a different email address"
+msgstr "Defnyddiwch gyfeiriad e-bost gwahanol"
+
+#: app/forms.py:37
+msgid "About Me"
+msgstr "Amdanaf Fi"
+
+#: app/forms.py:38 app/forms.py:53 app/forms.py:59
+msgid "Submit"
+msgstr "Cyflwyno"
+
+#: app/forms.py:49
+msgid "This username is already taken, please use a different one."
+msgstr ""
+"Mae'r enw defnyddiwr hwn eisoes wedi'i gymryd, defnyddiwch un gwahanol."
+
+#: app/forms.py:57
+msgid "Say something"
+msgstr "Dwed rhywbeth"
+
+#: app/forms.py:64 app/forms.py:71
+msgid "Request Password Reset"
+msgstr "Gofyn am Ailosod Cyfrinair"
+
+#: app/routes.py:30
+msgid "Your post is now live!"
+msgstr "Mae eich swydd bellach yn fyw!"
+
+#: app/routes.py:39
+msgid "Home Page"
+msgstr "Tudalen Cartref"
+
+#: app/routes.py:53 app/templates/base.html:15
+msgid "Explore"
+msgstr "Archwilio"
+
+#: app/routes.py:91
+msgid "Congratulations, you are now a registered user!"
+msgstr "Llongyfarchiadau, rydych chi bellach yn ddefnyddiwr cofrestredig!"
+
+#: app/routes.py:120
+msgid "Your changes have been saved!"
+msgstr "Mae eich newidiadau wedi'u cadw!"
+
+#: app/routes.py:126 app/templates/edit_profile.html:6
+msgid "Edit Profile"
+msgstr "Golygu'r proffil"
+
+#: app/routes.py:137 app/routes.py:157
+#, python-format
+msgid "User %(username)s not found."
+msgstr "Heb ganfod %(username)s defnyddiwr."
+
+#: app/routes.py:140
+msgid "You cannot follow yourself!"
+msgstr "Allwch chi ddim dilyn eich hun!"
+
+#: app/routes.py:144
+#, python-format
+msgid "You are following %(username)s!"
+msgstr "Rydych chi'n dilyn %(username)s!"
+
+#: app/routes.py:160
+msgid "You cannot unfollow yourself!"
+msgstr "Allwch chi ddim dad-ddilyn eich hun!"
+
+#: app/routes.py:164
+#, python-format
+msgid "You are no longer following %(username)s."
+msgstr "Dydych chi ddim yn dilyn %(username)s mwyach."
+
+#: app/routes.py:179
+msgid "Check your email for the instructions to reset your password"
+msgstr "Gwiriwch eich e-bost am y cyfarwyddiadau i ailosod eich cyfrinair"
+
+#: app/routes.py:181 app/templates/reset_password_request.html:6
+msgid "Reset Password"
+msgstr "Ailosod Cyfrinair"
+
+#: app/routes.py:195
+msgid "Your password has been reset."
+msgstr "Mae eich cyfrinair wedi'i ailosod."
+
+#: app/templates/404.html:4
+msgid "File Not Found"
+msgstr "Heb Ganfod y Ffeil"
+
+#: app/templates/404.html:5 app/templates/500.html:6
+msgid "Back"
+msgstr "Nôl"
+
+#: app/templates/500.html:4
+msgid "An unexpected error has occurred"
+msgstr "Mae gwall annisgwyl wedi digwydd"
+
+#: app/templates/500.html:5
+msgid "The administrator has been notified. Sorry for the inconvenience!"
+msgstr "Hysbyswyd y gweinyddwr. Mae'n ddrwg gennyf am yr anghyfleustra!"
+
+#: app/templates/base.html:7
+msgid "Welcome to Microblog!"
+msgstr "Croeso i Microblog!"
+
+#: app/templates/base.html:13
+msgid "Microblog"
+msgstr "Microblog"
+
+#: app/templates/base.html:14
+msgid "Home"
+msgstr "Cartref"
+
+#: app/templates/base.html:17
+msgid "Login"
+msgstr "Mewngofnodi"
+
+#: app/templates/base.html:19
+msgid "Profile"
+msgstr "Proffil"
+
+#: app/templates/base.html:20
+msgid "Logout"
+msgstr "Logio Allan"
+
+#: app/templates/index.html:6
+#, python-format
+msgid "Hello,  %(username)s"
+msgstr "Helo, %(username)s"
+
+#: app/templates/index.html:22 app/templates/user.html:43
+msgid "Newer posts"
+msgstr "Erthyglau newydd"
+
+#: app/templates/index.html:27 app/templates/user.html:48
+msgid "Older posts"
+msgstr "Erthyglau hŷn"
+
+#: app/templates/login.html:7
+msgid "New User?"
+msgstr "Defnyddiwr Newydd?"
+
+#: app/templates/login.html:7
+msgid "Click to Register!"
+msgstr "Cliciwch i Gofrestru!"
+
+#: app/templates/login.html:15
+msgid "Click to reset your password"
+msgstr "Cliciwch i ailosod eich cyfrinair"
+
+#: app/templates/reset_password.html:6
+msgid "Reset Your Password"
+msgstr "Ailosod eich Cyfrinair"
+
+#: app/templates/user.html:8
+#, python-format
+msgid "User:  %(username)s"
+msgstr "Defnyddiwr: %(username)s"
+
+#: app/templates/user.html:10
+#, python-format
+msgid "Last seen on: %(when)s"
+msgstr "Gwelwyd ddiwethaf ar: %(when)s"
+
+#: app/templates/user.html:11
+#, python-format
+msgid "%(followers)s followers, %(following)s following."
+msgstr "%(followers)s dilynwyr, %(following)s canlynol."
+
+#: app/templates/user.html:17
+msgid "Follow"
+msgstr "Dilyn"
+
+#: app/templates/user.html:24
+msgid "Unfollow"
+msgstr "Heb ei ddilyn"
+
+#: app/templates/user.html:33
+msgid "Edit your profile"
+msgstr "Golygu eich proffil"
