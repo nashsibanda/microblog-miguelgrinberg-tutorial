@@ -1,4 +1,4 @@
-from flask import render_template, flash, redirect, url_for, request, g
+from flask import render_template, flash, redirect, url_for, request, g, jsonify
 from flask_login import current_user, login_user
 from flask.helpers import flash
 from flask_login.utils import login_required, logout_user
@@ -10,6 +10,7 @@ from app import app, db
 from app.forms import EditProfileForm, EmptyForm, LoginForm, PostForm, RegistrationForm, ResetPasswordForm, ResetPasswordRequestForm
 from app.models import User, Post
 from app.email import send_password_reset_email
+from app.translate import translate
 
 
 @app.before_request
@@ -57,6 +58,14 @@ def explore():
         'explore', page=posts.prev_num) if posts.has_prev else None
     return render_template('index.html', title=_('Explore'), posts=posts.items,
                            next_url=next_url, prev_url=prev_url)
+
+
+@app.route('/translate', methods=['POST'])
+@login_required
+def translate_text():
+    return jsonify({'text': translate(request.form['text'],
+                                      request.form['source_language'],
+                                      request.form['dest_language'])})
 
 
 @app.route('/login', methods=['GET', 'POST'])
