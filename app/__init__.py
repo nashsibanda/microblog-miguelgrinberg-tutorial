@@ -7,6 +7,7 @@ from flask_mail import Mail
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
 from flask_babel import Babel, lazy_gettext as _l
+from flask_seeder import FlaskSeeder
 import logging
 import os
 from logging.handlers import SMTPHandler, RotatingFileHandler
@@ -32,6 +33,8 @@ def create_app(config_class=Config):
     bootstrap.init_app(app)
     moment.init_app(app)
     babel.init_app(app)
+    seeder = FlaskSeeder()
+    seeder.init_app(app, db)
 
 
     from app.errors import bp as errors_bp
