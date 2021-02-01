@@ -10,11 +10,12 @@ class FollowSeeder(Seeder):
 
     def run(self):
         users = User.query.all()
+        population = len(users)
         i = 0
         for root_user in users:
-            others = sample([user for user in users if user.id is not root_user.id], randint(5, 25))
+            others = sample([user for user in users if user.id is not root_user.id], randint(5, population // 2))
             for other_user in others:
                 root_user.follow(other_user)
                 i += 1
-                if i % 50 == 0:
+                if i % population == 0:
                     print(f"{root_user.username} is now following {other_user.username}!")

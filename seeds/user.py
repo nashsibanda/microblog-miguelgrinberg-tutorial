@@ -11,8 +11,12 @@ class UserSeeder(Seeder):
         super().__init__(db=db)
         self.priority = 2
 
+
     def run(self):
-        for num in range(1, 51):
+        # Change to increase/decrease the number of users
+        number_of_users = 50
+
+        for num in range(1, number_of_users + 1):
             if num % 10 == 0:
                 print("Adding user: %s" % num)
             user = User(username=fake.unique.user_name(),

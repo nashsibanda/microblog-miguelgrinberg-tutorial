@@ -14,17 +14,19 @@ class PostSeeder(Seeder):
 
     def run(self):
         users = User.query.all()
-        for num in range(1, 650):
+        population = len(users)
+        total = population * 20
+        for num in range(1, population * 14):
             if num % 100 == 0:
-                print("Adding post: %s of 1000" % num)
+                print(f"Adding post: {num} of {total}")
             post = Post(body=en_fake.text(max_nb_chars=140),
                         language='en',
                         timestamp=en_fake.past_datetime(start_date='-60d'),
                         user_id=choice(users).id)
             self.db.session.add(post)
-        for num in range(650, 1001):
+        for num in range(population * 14, population * 20):
             if num % 100 == 0:
-                print("Adding post: %s of 1000" % num)
+                print(f"Adding post: {num} of {total}")
             post = Post(body=ja_fake.text(max_nb_chars=140),
                         language='ja',
                         timestamp=ja_fake.past_datetime(start_date='-60d'),
