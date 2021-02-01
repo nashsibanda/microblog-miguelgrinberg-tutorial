@@ -13,7 +13,7 @@ class FollowSeeder(Seeder):
         population = len(users)
         i = 0
         for root_user in users:
-            others = sample([user for user in users if user.id is not root_user.id], randint(5, population // 2))
+            others = sample([user for user in users if user.id is not root_user.id], randint(3, population // 2))
             for other_user in others:
                 root_user.follow(other_user)
                 i += 1

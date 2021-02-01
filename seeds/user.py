@@ -14,7 +14,7 @@ class UserSeeder(Seeder):
 
     def run(self):
         # Change to increase/decrease the number of users
-        number_of_users = 50
+        number_of_users = 100
 
         for num in range(1, number_of_users + 1):
             if num % 10 == 0:
