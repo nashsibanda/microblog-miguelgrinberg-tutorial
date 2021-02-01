@@ -24,6 +24,15 @@ babel = Babel(app)
 def get_locale():
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
+from app.errors import bp as errors_bp
+app.register_blueprint(errors_bp)
+
+from app.auth import bp as auth_bp
+app.register_blueprint(auth_bp, url_prefix='/auth')
+
+from app.main import bp as main_bp
+app.register_blueprint(main_bp)
+
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
@@ -54,9 +63,4 @@ if not app.debug:
     app.logger.setLevel(logging.INFO)
     app.logger.info('Microblog startup')
 
-from app.errors import bp as errors_bp
-app.register_blueprint(errors_bp)
-from app.auth import bp as auth_bp
-app.register_blueprint(auth_bp, url_prefix='/auth')
-
-from app import routes, models
+from app import models
