@@ -14,7 +14,7 @@ from logging.handlers import SMTPHandler, RotatingFileHandler
 app = Flask(__name__)
 app.config.from_object(Config)
 login = LoginManager(app)
-login.login_view = 'login'
+login.login_view = 'auth.login'
 login.login_message = _l('Please log in to access this page.')
 mail = Mail(app)
 bootstrap = Bootstrap(app)
@@ -23,6 +23,9 @@ babel = Babel(app)
 @babel.localeselector
 def get_locale():
     return request.accept_languages.best_match(app.config['LANGUAGES'])
+    
+db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
 from app.errors import bp as errors_bp
 app.register_blueprint(errors_bp)
@@ -33,8 +36,6 @@ app.register_blueprint(auth_bp, url_prefix='/auth')
 from app.main import bp as main_bp
 app.register_blueprint(main_bp)
 
-db = SQLAlchemy(app)
-migrate = Migrate(app, db)
 
 if not app.debug:
     if app.config['MAIL_SERVER']:
